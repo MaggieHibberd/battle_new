@@ -20,7 +20,5 @@ get '/diary' do
 end
 
 get '/cat' do
-  "<div style='border: 3px dashed red'>
-    <img src='https://www.qries.com/images/banner_logo.png'>
-   </div>"
+    erb(:index)
 end
