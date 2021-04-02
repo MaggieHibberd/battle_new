@@ -20,12 +20,16 @@ get '/diary' do
 end
 
 get '/cat' do
-    @name = ["Amigo", "Misty", "Almond"].sample
-    erb(:index)
+  @name = ["Amigo", "Misty", "Almond"].sample
+  erb(:index)
 end
 
-get '/named-cat' do
+post '/named-cat' do
   p params
   @name = params[:name]
-  erb :inde
+  erb :index
+end
+
+get '/cat-form' do 
+  erb(:cat_form)
 end
