@@ -1,3 +1,4 @@
+require './spec/features/web_helpers'
 
 ENV['RACK_ENV'] = 'test'
 
