@@ -1,35 +1,22 @@
-require 'sinatra'
-require 'sinatra/reloader' if development?
+require 'sinatra/base'
+require 'sinatra/reloader'
 
-set :session_secret, 'super secret'
+class Battle < Sinatra::Base
+  configure :development do
+    register Sinatra::Reloader
+  end
+
+# set :session_secret, 'super secret'
 
 get '/' do
-  'hello'
-end
-
-get '/secret' do
-  'Its a secret'
-end
-
-get '/tales' do
-  'Tall tale'
-end
-
-get '/diary' do
-  'Entry 2021'
-end
-
-get '/cat' do
-  @name = ["Amigo", "Misty", "Almond"].sample
-  erb(:index)
-end
-
-post '/named-cat' do
-  p params
-  @name = params[:name]
   erb :index
 end
 
-get '/cat-form' do 
-  erb(:cat_form)
+post '/names' do 
+  @player_1_name = params[:player_1_name]
+  @player_2_name = params[:player_2_name]
+  erb :play 
+end
+
+run! if app_file == $0
 end
