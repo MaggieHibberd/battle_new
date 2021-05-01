@@ -39,6 +39,7 @@ get '/attack' do
   # Game.new.game_attack(@player_2_name)
   @game = $game
   @game.attack(@game.player_2)
+  # $game.switch_turns
   erb :attack
 end
 
